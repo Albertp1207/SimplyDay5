@@ -1,0 +1,17 @@
+script
+    function editTodo
+html
+  head
+    title=title
+    script(src="fetches.js")
+  body
+    form(action="/todos", method="post")
+        input(type="text" name="todoText" defaultValue="" required) 
+        button(type="submit") Submit
+    ul
+        each todoText,index in todos
+            li
+                label= todoText  
+                a(href = `/todos/${index}/edit`)  edit 
+                button(onClick = `deleteTodo(${index})`)  delete 
+                

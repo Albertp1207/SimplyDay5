@@ -1,0 +1,10 @@
+script
+    function editTodo
+html
+  head
+    title=title
+    script(src="../../fetches.js")
+  body
+    form(onSubmit = `editTodo(event,${index})` action="/todos", method="post")
+        input(type="text" name="todoText" value= todoText required) 
+        button(type= "submit") Submit
