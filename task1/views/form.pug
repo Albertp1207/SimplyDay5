@@ -1,0 +1,31 @@
+html
+  head
+    title= title
+  body
+    form(action="/form", method="post")
+        label name 
+        input(type="text" name="name" defaultValue="")
+        br
+        br
+        label username 
+        input(type="text" name="username" defaultValue="")
+        br
+        br
+        label password 
+        input(type="password" name="password" defaultValue="")
+        br
+        br
+        label sex 
+        label(for="male") male
+        input(type="radio" id="male" name="sex" value="male")
+        label(for="female") female
+        input(type="radio" id="female" name="sex" value="female")
+        br
+        br
+        label(for="check") agree with 
+        input(type="checkbox" id="check" name = "agree" defaultValue="")
+        br
+        br
+        button(type="submit") Submit
+        if error 
+            p ERROR !!! 

@@ -1,0 +1,17 @@
+html
+  head
+    title= title
+  body
+    p= 'param: ' + param
+    br
+    p= 'query params'
+    each val, index in query
+        p= index + " : " + val
+    br
+    p= 'headers'
+    each val, index in headers
+        p= index + " : " + val
+    br
+    p= 'cookies'
+    each val, index in cookies
+        p= index + " : " + val

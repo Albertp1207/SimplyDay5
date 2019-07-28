@@ -1,0 +1,11 @@
+html
+  head
+    title=title
+  body
+    div
+      ul
+        each user in users
+            h3= user.username
+            each val, index in user
+                li= index + " : " + val
+            br
