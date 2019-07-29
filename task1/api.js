@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const userValidation = require("./tools/userValidation");
+const validateUser = require("./utils/validateUser");
 
 router.get("/time", (req,res) => {
     const date = new Date();
@@ -12,7 +12,7 @@ router.get("/time", (req,res) => {
 })
 router.post("/users", (req,res) => {
     const users = req.app.get("users");
-    const isUserValid = userValidation(req.body);
+    const isUserValid = validateUser(req.body);
     if(isUserValid) {
         users.push(req.body)
         res.status(200).json({status:"ok"})

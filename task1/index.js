@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
-const userValidation = require("./tools/userValidation")
+const validateUser = require("./utils/validateUser")
 const api = require("./api");
 
 app.use(express.json());
@@ -42,7 +42,7 @@ app.get("/form", (req,res) => {
 })
 app.post("/form", (req,res) => {
 
-    const isUserValid = userValidation(req.body);
+    const isUserValid = validateUser(req.body);
 
     if(isUserValid) {
         users.push(req.body)

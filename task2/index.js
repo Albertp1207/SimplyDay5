@@ -21,17 +21,23 @@ app.get("/todos",(req,res) => {
 })
 app.post("/todos",(req,res) => {
     const {todoText} = req.body
-    if(todoText) {
+    if(todoText.trim().length > 0) {
         todos.push(req.body.todoText);
+        res.redirect("/todos")
 
+    } else {
+        res.status(422).json({status:"input is empty"});
     }
-    res.redirect("/todos")
 })
 app.put("/todos",(req,res) => {
-    if(todos[req.body.index] === req.body.todoText ){
+    const index = req.body.index;
+    const text = req.body.todoText;
+    if(todos[index] === text ){
         res.status(401).json({status:"Unauthorized"})
+    } else if(text.trim().length < 1) {
+        res.status(422).json({status:"input is empty"})
     } else {
-        todos[req.body.index] = req.body.todoText;
+        todos[index] = req.body.todoText;
         res.status(200).json({status:"ok"})
     }
 })
